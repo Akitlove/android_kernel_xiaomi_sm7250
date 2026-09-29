@@ -2016,7 +2016,7 @@ static int check_is_focal_touch(struct fts_ts_data *ts_data)
 }
 
 #ifdef CONFIG_TOUCHSCREEN_XIAOMI_TOUCHFEATURE
-static u8 fts_panel_vendor_read(void)
+static char fts_panel_vendor_read(void)
 {
 	if (fts_data)
 		return fts_data->lockdown_info[0];
@@ -2024,7 +2024,7 @@ static u8 fts_panel_vendor_read(void)
 		return 0;
 }
 
-static u8 fts_panel_color_read(void)
+static char fts_panel_color_read(void)
 {
 	if (fts_data)
 		return fts_data->lockdown_info[2];
@@ -2032,7 +2032,7 @@ static u8 fts_panel_color_read(void)
 		return 0;
 }
 
-static u8 fts_panel_display_read(void)
+static char fts_panel_display_read(void)
 {
 	if (fts_data)
 		return fts_data->lockdown_info[1];
