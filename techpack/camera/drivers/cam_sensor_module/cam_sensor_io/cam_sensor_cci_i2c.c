@@ -128,9 +128,8 @@ static int32_t cam_cci_i2c_write_table_cmd(
 	cci_ctrl.cfg.cci_i2c_write_cfg.data_type = write_setting->data_type;
 	cci_ctrl.cfg.cci_i2c_write_cfg.addr_type = write_setting->addr_type;
 	cci_ctrl.cfg.cci_i2c_write_cfg.size = write_setting->size;
-	cci_ctrl.force_low_priority = force_low_priority;
-	rc = v4l2_subdev_call(client->cci_client->cci_subdev,
-		core, ioctl, VIDIOC_MSM_CCI_CFG, &cci_ctrl);
+	rc = cam_cci_client_ops(client->cci_client->cci_subdev, VIDIOC_MSM_CCI_CFG,
+		&cci_ctrl);
 	if (rc < 0) {
 		CAM_ERR(CAM_SENSOR, "Failed rc = %d", rc);
 		return rc;
